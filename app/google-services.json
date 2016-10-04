@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "61620107952",
+    "firebase_url": "https://xamxon-8ba28.firebaseio.com",
+    "project_id": "xamxon-8ba28",
+    "storage_bucket": "xamxon-8ba28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61620107952:android:b00b9c8fc2ac5f94",
+        "android_client_info": {
+          "package_name": "th.ac.buapit.buapitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61620107952-9afg48vqh3fp6luco0squjcq72mkccau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC5eXHBqZ4C_qdwtiNEf_ntrw0WxpOZuc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61620107952:android:1630bd323ee18fa6",
+        "android_client_info": {
+          "package_name": "th.ac.buapit.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61620107952-9afg48vqh3fp6luco0squjcq72mkccau.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC5eXHBqZ4C_qdwtiNEf_ntrw0WxpOZuc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
