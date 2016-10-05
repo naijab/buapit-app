@@ -8,16 +8,13 @@
     android:orientation="vertical"
     android:padding="2dp">
 
-    <com.andexert.library.RippleView
-        android:id="@+id/more"
-        rv_centered="true"
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:rv_color="#fff"
-        app:rv_rippleDuration="200">
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/linearLayout"
@@ -34,12 +31,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/grid_image"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="Grid View Item"
                 android:textColor="#444"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
-    </com.andexert.library.RippleView>
+
+    </RelativeLayout>
+
+
 </LinearLayout>

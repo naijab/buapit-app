@@ -1,7 +1,8 @@
-package th.ac.buapit.app;
+package th.ac.buapit.app.Service;
 
 import android.app.Application;
 
+import th.ac.buapit.app.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class CustomFont extends Application {
