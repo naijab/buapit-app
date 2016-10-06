@@ -2,19 +2,36 @@ package th.ac.buapit.app;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,10 +44,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import th.ac.buapit.app.Adapter.PersonAdapter;
-import th.ac.buapit.app.Model.Person;
+import th.ac.buapit.app.Model.PersonItem;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static android.R.id.list;
@@ -53,157 +71,127 @@ public class MainActivity4 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        new AsyncFetch().execute();
-        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainerPerson);
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new AsyncFetch().execute();
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        try {
+            final ListView listViewMovies = (ListView)findViewById(R.id.recycler_view_person);
+            String url = "http://app.buapit.ac.th/sada/json/json_person.php?id=1039760327&key=avgfefAgfsdRdCidlVREWSfelfLKAqwporzcgo";
+            JSONArray data1 = new JSONArray(getJSONW(url,params));
+
+            final ArrayList<HashMap<String, String>> MyArrList = new ArrayList<HashMap<String, String>>();
+            HashMap<String, String> map;
+
+            for(int i = 0; i < data1.length(); i++){
+                JSONObject c = data1.getJSONObject(i);
+
+                map = new HashMap<String, String>();
+                map.put("person_name", c.getString("person_name"));
+                map.put("person_position", c.getString("person_position"));
+                map.put("person_faction", c.getString("person_faction"));
+                map.put("person_tel", c.getString("person_tel"));
+                MyArrList.add(map);
+
             }
-        });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
 
 
+            SimpleAdapter simpleAdapterDataW;
+            simpleAdapterDataW = new SimpleAdapter(MainActivity4.this, MyArrList, R.layout.card_row_person,
+                    new String[] {"person_name", "person_position", "person_faction","person_tel"}, new int[] {R.id.tv_person_name, R.id.tv_person_posi, R.id.tv_person_fac});
+            listViewMovies.setAdapter(simpleAdapterDataW);
+
+            final AlertDialog.Builder viewDetails = new AlertDialog.Builder(this);
+            // OnClick Item
+            listViewMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                public void onItemClick(AdapterView<?> myAdapter, View myView,
+                                        int position, long mylng) {
+
+                    String sTitle = MyArrList.get(position).get("person_name")
+                            .toString();
+                    String sDes = MyArrList.get(position).get("person_position")
+                            .toString();
+                    String sDess = MyArrList.get(position).get("person_faction")
+                            .toString();
+                    final String sDow = MyArrList.get(position).get("person_tel")
+                            .toString();
+
+                    //String sMemberID = ((TextView) myView.findViewById(R.id.ColMemberID)).getText().toString();
+                    // String sName = ((TextView) myView.findViewById(R.id.ColName)).getText().toString();
+                    // String sTel = ((TextView) myView.findViewById(R.id.ColTel)).getText().toString();
+
+                    viewDetails.setTitle("รายระเอียด" + sTitle);
+                    viewDetails.setMessage("ตำแหน่ง : " + sDes + "\n"
+                    +"ฝ่าย : " + sDess);
+                    viewDetails.setPositiveButton("โทรศัพท์",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    // TODO Auto-generated method stub
+                                    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + sDow));
+                                    startActivity(intent);
+                                    dialog.dismiss();
+                                }
+                            });
+                    viewDetails.setNegativeButton("ยกเลิก",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    // TODO Auto-generated method stub
+                                    dialog.dismiss();
+                                }
+                            });
+                    viewDetails.show();
+
+                }
+            });
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
+    public String getJSONW(String url,List<NameValuePair> params) {
+        StringBuilder str = new StringBuilder();
+        HttpClient client = new DefaultHttpClient();
+        HttpPost httpPost = new HttpPost(url);
 
-    private class AsyncFetch extends AsyncTask<String, String, String> {
-        ProgressDialog pdLoading = new ProgressDialog(MainActivity4.this);
-        HttpURLConnection conn;
-        URL url = null;
+        try {
+            httpPost.setEntity(new UrlEncodedFormEntity(params));
+            HttpResponse responseW = client.execute(httpPost);
+            StatusLine statusLine = responseW.getStatusLine();
+            int statusCode = statusLine.getStatusCode();
+            if (statusCode == 200) {
+                HttpEntity entity = responseW.getEntity();
+                InputStream content = entity.getContent();
+                BufferedReader reader_buffer = new BufferedReader
+                        (new InputStreamReader(content));
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-
-            //this method will be running on UI thread
-            pdLoading.setMessage("\tกรุณารอสักครู่...");
-            pdLoading.setCancelable(false);
-            //pdLoading.show();
-
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-
-                // Enter URL address where your json file resides
-                // Even you can make call to php file which returns json data
-                url = new URL("http://app.buapit.ac.th/sada/json/json_person.php?id=1039760327&key=avgfefAgfsdRdCidlVREWSfelfLKAqwporzcgo");
-
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return e.toString();
-            }
-            try {
-
-                // Setup HttpURLConnection class to send and receive data from php and mysql
-                conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(READ_TIMEOUT);
-                conn.setConnectTimeout(CONNECTION_TIMEOUT);
-                conn.setRequestMethod("GET");
-
-                // setDoOutput to true as we recieve data from json file
-                conn.setDoOutput(true);
-
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-                return e1.toString();
-            }
-
-            try {
-
-                int response_code = conn.getResponseCode();
-
-                // Check if successful connection made
-                if (response_code == HttpURLConnection.HTTP_OK) {
-
-                    // Read data sent from server
-                    InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                    StringBuilder result = new StringBuilder();
-                    String line;
-
-                    while ((line = reader.readLine()) != null) {
-                        result.append(line);
-                    }
-
-                    // Pass data to onPostExecute method
-                    return (result.toString());
-
-                } else {
-
-                    return ("unsuccessful");
+                String line;
+                while ((line = reader_buffer.readLine()) != null) {
+                    str.append(line);
                 }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return e.toString();
-            } finally {
-                conn.disconnect();
+            } else {
+                Log.e("Log", "Failed to download file..");
             }
-
-
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-            //this method will be running on UI thread
-            swipeContainer.setRefreshing(false);
-            pdLoading.dismiss();
-            List<Person> data=new ArrayList<>();
-
-            pdLoading.dismiss();
-            try {
-
-                JSONArray jArray = new JSONArray(result);
-
-                // Extract data from json and store into ArrayList as class objects
-                for(int i=0;i<jArray.length();i++){
-                    JSONObject json_data = jArray.getJSONObject(i);
-                    Person pero = new Person();
-                    pero.personName= json_data.getString("person_name");
-                    pero.personPosition= json_data.getString("person_position");
-                    pero.personFaction= json_data.getString("person_faction");
-                    pero.personTel= json_data.getString("person_tel");
-                    data.add(pero);
-                }
-
-                // Setup and Handover data to recyclerview
-                mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view_person);
-                mAdapter = new PersonAdapter(MainActivity4.this, data);
-                mRecyclerView.setAdapter(mAdapter);
-                mRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity4.this));
-
-            } catch (JSONException e) {
-                Log.d("MainAc4", "Error Load Data: " + e.toString());
-
-                //Toast.makeText(MainActivity4.this, e.toString(), Toast.LENGTH_LONG).show();
-            }
-
-        }
-
+        return str.toString();
     }
 
     @Override
     protected void attachBaseContext(Context newBase){
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
+
 
 
 }

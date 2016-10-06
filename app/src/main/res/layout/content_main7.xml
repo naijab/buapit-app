@@ -13,4 +13,13 @@
     tools:context="th.ac.buapit.app.MainActivity7"
     tools:showIn="@layout/activity_main7">
 
+    <ListView
+        android:divider="@android:color/transparent"
+        android:dividerHeight="9sp"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:id="@+id/recycler_view_dowload"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
