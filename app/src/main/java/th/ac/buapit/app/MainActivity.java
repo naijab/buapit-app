@@ -2,10 +2,8 @@ package th.ac.buapit.app;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -50,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
         FirebaseInstanceId.getInstance().getToken();
         //End firebase notification
 
-       // toolbar = (Toolbar) findViewById(R.id.toolbar);
-     //   setSupportActionBar(toolbar);
-
         //เมนูหน้าแรก
         gridView = (GridView) findViewById(R.id.grid);
         gridView.setAdapter(new CustomAndroidGridViewAdapterMenuHome(this, menuHome, menuHomeimageId));
@@ -62,31 +57,31 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent = new Intent(MainActivity.this, MainActivity1.class);
                         startActivity(intent);
                         break;
                     case 1:
-                        Intent intent1 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent1 = new Intent(MainActivity.this, MainActivity2.class);
                         startActivity(intent1);
                         break;
                     case 2:
-                        Intent intent2 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent2 = new Intent(MainActivity.this, MainActivity3.class);
                         startActivity(intent2);
                         break;
                     case 3:
-                        Intent intent3 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent3 = new Intent(MainActivity.this, MainActivity4.class);
                         startActivity(intent3);
                         break;
                     case 4:
-                        Intent intent4 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent4 = new Intent(MainActivity.this, MainActivity5.class);
                         startActivity(intent4);
                         break;
                     case 5:
-                        Intent intent5 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent5 = new Intent(MainActivity.this, MainActivity6.class);
                         startActivity(intent5);
                         break;
                     case 6:
-                        Intent intent6 = new Intent(MainActivity.this, MainActivity.class);
+                        Intent intent6 = new Intent(MainActivity.this, MainActivity7.class);
                         startActivity(intent6);
                         break;
 

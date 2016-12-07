@@ -1,6 +1,37 @@
 <resources>
+    <!--App Basic-->
     <string name="app_name">Buapit</string>
     <string name="splash_logo_text">Buapit</string>
     <string name="splash_logo_text2">โรงเรียนหนองบัวพิทยาคาร</string>
     <string name="splash_logo_text3">จ.หนองบัวลำภู</string>
+
+    <!--Title Activity-->
+    <string name="title_activity_1">ข้อมูลโรงเรียน</string>
+    <string name="title_activity_2">ข่าวสาร</string>
+    <string name="title_activity_3">บุคลากร</string>
+    <string name="title_activity_4">ใบขออนุญาต</string>
+    <string name="title_activity_5">ปฏิทินกิจกรรม</string>
+    <string name="title_activity_6">ดาวน์โหลด</string>
+    <string name="title_activity_7">ขออนุญาต</string>
+
+    <!--Add Permit Activity-->
+    <string name="label_add_permit0">ชั้น</string>
+    <string name="label_add_permit0_1">ห้อง</string>
+
+    <string name="hint_add_permit1">กรอกรหัสประจำตัวนักเรียน</string>
+    <string name="label_add_permit1">รหัสประจำตัวนักเรียน</string>
+
+    <string name="hint_add_permit2">กรอกชื่อ-สกุล</string>
+    <string name="label_add_permit2">ชื่อ-สกุล</string>
+
+    <string name="hint_add_permit3">กรอกเหตุผล</string>
+    <string name="label_add_permit3">เหตุผล</string>
+
+    <string name="hint_add_permit4">กรอกรหัสประจำตัวนักเรียน</string>
+    <string name="label_add_permit4">รหัสประจำตัวนักเรียน</string>
+
+    <string name="hint_add_permit5">กรอกรหัสประจำตัวนักเรียน</string>
+    <string name="label_add_permit5">รหัสประจำตัวนักเรียน</string>
+
+
 </resources>
