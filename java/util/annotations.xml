@@ -1,0 +1,5 @@
+<root>
+  <item name='java.util.ArrayList'>
+    <annotation name='android.support.annotation.NonNull' />
+  </item>
+</root>
