@@ -9,21 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import th.ac.buapit.buaproid.Model.TestModel;
+import th.ac.buapit.buaproid.Model.NewsModel;
 import th.ac.buapit.buaproid.R;
 
 
-public class Test_RecyclerAdapter extends RecyclerView.Adapter<Test_RecyclerAdapter.VersionViewHolder> {
+public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.VersionViewHolder> {
 
     Context context;
     OnItemClickListener clickListener;
-    private List<TestModel> itemList;
+    private List<NewsModel> itemList;
 
-    public Test_RecyclerAdapter(Context context, List<TestModel> itemList) {
+    public NewsRecyclerViewAdapter(Context context, List<NewsModel> itemList) {
         this.itemList = itemList;
         this.context = context;
     }
@@ -38,10 +38,11 @@ public class Test_RecyclerAdapter extends RecyclerView.Adapter<Test_RecyclerAdap
     @Override
     public void onBindViewHolder(final VersionViewHolder versionViewHolder, final int position) {
         versionViewHolder.m_title.setText(itemList.get(position).getNewsTitle());
-        versionViewHolder.m_content.setText(itemList.get(position).getNewsContent());
+//        versionViewHolder.m_content.setText(itemList.get(position).getNewsContent());
 
         Glide.with(context)
                 .load(itemList.get(position).getNewsImg())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(versionViewHolder.m_image);
 
     }
@@ -49,6 +50,11 @@ public class Test_RecyclerAdapter extends RecyclerView.Adapter<Test_RecyclerAdap
     @Override
     public int getItemCount() {
         return this.itemList.size();
+    }
+
+    public void clear(){
+        itemList.clear();
+        notifyDataSetChanged();
     }
 
     class VersionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -79,4 +85,15 @@ public class Test_RecyclerAdapter extends RecyclerView.Adapter<Test_RecyclerAdap
     public void SetOnItemClickListener(final OnItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;
     }
+
+//    public void clear() {
+//        itemList.clear();
+//        notifyDataSetChanged();
+//    }
+//
+//    // Add a list of items
+//    public void addAll(List<TestModel> list) {
+//        itemList.addAll(list);
+//        notifyDataSetChanged();
+//    }
 }
