@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/buttom_nav_item_home"
+        icon="@drawable/ic_home"
+        barColorWhenSelected="@color/colorAccent"
+        title="@string/menu_bottom_nav_title_home" />
+    <tab
+        id="@+id/buttom_nav_item_class"
+        icon="@drawable/ic_calendar"
+        barColorWhenSelected="@color/colorPrimary"
+        title="@string/menu_bottom_nav_title_class" />
+    <tab
+        id="@+id/buttom_nav_item_calendar"
+        icon="@drawable/ic_view_list"
+        barColorWhenSelected="@color/colorPurple"
+        title="@string/menu_bottom_nav_title_calendar" />
+    <tab
+        id="@+id/buttom_nav_item_fav"
+        icon="@drawable/ic_grade"
+        barColorWhenSelected="@color/colorSky"
+        title="@string/menu_bottom_nav_title_fav" />
+    <tab
+        id="@+id/buttom_nav_item_plus"
+        icon="@drawable/ic_queue"
+        barColorWhenSelected="@color/colorGreen"
+        title="@string/menu_bottom_nav_title_plus" />
+</tabs>

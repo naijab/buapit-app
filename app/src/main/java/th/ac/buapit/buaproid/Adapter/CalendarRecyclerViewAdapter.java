@@ -8,45 +8,37 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
 import java.util.List;
 
-import th.ac.buapit.buaproid.Model.NewsModel;
+import th.ac.buapit.buaproid.Model.CalendarModel;
 import th.ac.buapit.buaproid.R;
 
 
-public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewAdapter.VersionViewHolder> {
+public class CalendarRecyclerViewAdapter extends RecyclerView.Adapter<CalendarRecyclerViewAdapter.VersionViewHolder> {
 
     Context context;
     OnItemClickListener clickListener;
-    private List<NewsModel> itemList;
+    private List<CalendarModel> itemList;
 
-    public NewsRecyclerViewAdapter(Context context, List<NewsModel> itemList) {
+    public CalendarRecyclerViewAdapter(Context context, List<CalendarModel> itemList) {
         this.itemList = itemList;
         this.context = context;
     }
 
-    public NewsRecyclerViewAdapter(List<NewsModel> mListNewsModel) {
+    public CalendarRecyclerViewAdapter(List<CalendarModel> mListNewsModel) {
     }
 
     @Override
     public VersionViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_home, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_calendar, viewGroup, false);
         VersionViewHolder viewHolder = new VersionViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(final VersionViewHolder versionViewHolder, final int position) {
-        versionViewHolder.m_title.setText(itemList.get(position).getNewsTitle());
+        versionViewHolder.c_title.setText(itemList.get(position).getCalendarTitle());
 //        versionViewHolder.m_content.setText(itemList.get(position).getNewsContent());
-
-        Glide.with(context)
-                .load(itemList.get(position).getNewsImg())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(versionViewHolder.m_image);
 
     }
 
@@ -61,16 +53,15 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     }
 
     class VersionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView m_title;
-        TextView m_content;
-        ImageView m_image;
+        TextView c_title;
+        TextView c_content;
+        ImageView c_image;
 
         public VersionViewHolder(View itemView) {
             super(itemView);
 
-            m_title = (TextView) itemView.findViewById(R.id.x_title);
-            m_content = (TextView) itemView.findViewById(R.id.x_content);
-            m_image = (ImageView) itemView.findViewById(R.id.title_img);
+            c_title = (TextView) itemView.findViewById(R.id.c_title);
+            c_content = (TextView) itemView.findViewById(R.id.c_content);
 
             itemView.setOnClickListener(this);
         }
