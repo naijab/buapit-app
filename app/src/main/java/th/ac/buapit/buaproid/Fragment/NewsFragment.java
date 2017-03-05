@@ -12,11 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,12 +38,25 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private View rootView;
     RecyclerView mRecyclerView;
     SwipeRefreshLayout mSwipeRefreshLayout;
+    LikeButton mLove;
     NewsRecyclerViewAdapter mAdapter;
+    private Realm mRealm;
 
     public NewsFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mRealm = Realm.getDefaultInstance();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mRealm.close();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +64,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         rootView = inflater.inflate(R.layout.fragment_news, container, false);
         initRecyclerView();
         initSwipeRefreshLayout();
-
+        initLikeButton();
         return rootView;
     }
 
@@ -70,6 +88,10 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         mSwipeRefreshLayout.setOnRefreshListener(this);
     }
 
+    private void initLikeButton(){
+
+
+    }
 
     private void AccessRestNewsFromRetrofit(){
         // check internet
@@ -119,6 +141,8 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         }
                     });
 
+
+
                     Log.d(TAG, "on Response OK: " + statusCode);
                 } else {
                     Log.e(TAG, "on Response Error: " + statusCode);
@@ -133,5 +157,6 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         });
 
     }
+
 
 }
