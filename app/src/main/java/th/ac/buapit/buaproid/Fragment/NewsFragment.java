@@ -1,12 +1,11 @@
 package th.ac.buapit.buaproid.Fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,9 +21,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import th.ac.buapit.buaproid.Adapter.NewsRecyclerViewAdapter;
-import th.ac.buapit.buaproid.ApiConnect.ApiConnectNews;
-import th.ac.buapit.buaproid.ApiConnect.RequestInterfaceNews;
-import th.ac.buapit.buaproid.NewsDetailActivity;
+import th.ac.buapit.buaproid.Network.ApiConnect.ApiConnectNews;
+import th.ac.buapit.buaproid.Network.ApiConnect.RequestInterfaceNews;
+import th.ac.buapit.buaproid.Activities.NewsDetailActivity;
 import th.ac.buapit.buaproid.Model.NewsModel;
 import th.ac.buapit.buaproid.R;
 
@@ -60,6 +59,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void initRecyclerView() {
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.RecyclerViewHome);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+//        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),2));
         mRecyclerView.setHasFixedSize(true);
 
         GetRestNewsFromRetrofit();
@@ -85,8 +85,8 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void GetRestNewsFromRetrofit(){
 
         final Map<String, String> mKey = new HashMap<>();
-        mKey.put("id", String.valueOf(1039760327));
-        mKey.put("key", "avgfefAgfsdRdCidlVREWSfelfLKAqwporzcgo");
+        mKey.put("id", String.valueOf(getString(R.string.api_key_id)));
+        mKey.put("key", getString(R.string.api_key));
 
         RequestInterfaceNews mInterface = ApiConnectNews.getClient().create(RequestInterfaceNews.class);
 
@@ -102,30 +102,13 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
                     final List<NewsModel> mNewModel = response.body();
 
-                    mAdapter = (new NewsRecyclerViewAdapter(getActivity().getApplicationContext(),mNewModel));
+                    mAdapter = (new NewsRecyclerViewAdapter(getActivity(),mNewModel));
                     mRecyclerView.setAdapter(mAdapter);
                     mSwipeRefreshLayout.setRefreshing(false);
 
                     mAdapter.SetOnItemClickListener(new NewsRecyclerViewAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
-//
-//                            Intent intent = new Intent(MainActivity.this, NewsDetailActivity.class);
-//                            intent.putExtra("title", mNewModel.get(position).getNewsTitle());
-//                            intent.putExtra("content", mNewModel.get(position).getNewsContent());
-//                            intent.putExtra("img", mNewModel.get(position).getNewsImg());
-//                            startActivity(intent);
-
-//                            NewsDetailFragment fragment = new NewsDetailFragment();
-//                            Bundle arguments = new Bundle();
-//                            arguments.putString("title" , mNewModel.get(position).getNewsTitle());
-//                            arguments.putString("content" , mNewModel.get(position).getNewsContent());
-////                            arguments.putString("title" , mNewModel.get(position).getNewsTitle());
-////
-//                            fragment.setArguments(arguments);
-//                            final FragmentTransaction ft = getFragmentManager().beginTransaction();
-//                            ft.replace(R.id.layout_fragment_container, fragment , "NewsDetailFragment");
-//                            ft.commit();
 
                             Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
                             intent.putExtra("title", mNewModel.get(position).getNewsTitle());

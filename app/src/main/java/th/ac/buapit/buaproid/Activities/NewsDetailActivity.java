@@ -1,5 +1,6 @@
-package th.ac.buapit.buaproid;
+package th.ac.buapit.buaproid.Activities;
 
+import android.graphics.Typeface;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import th.ac.buapit.buaproid.R;
 
 public class NewsDetailActivity extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         initDetail();
         initToolbar();
+        initCollapsingToolbarLayout();
     }
 
     private void initDetail(){
@@ -43,22 +50,22 @@ public class NewsDetailActivity extends AppCompatActivity {
                 .load(Img)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(mImg);
+
     }
     private void initToolbar() {
-
-        Bundle i = getIntent().getExtras();
-        final String Title = i.getString("title");
-
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void initCollapsingToolbarLayout() {
+        Bundle i = getIntent().getExtras();
+        final String Title = i.getString("title");
 
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
         mAppBarLayout = (AppBarLayout) findViewById(R.id.AppBarLayout);
-
         mCollapsingToolbarLayout.setTitle("");
-
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = true;
             int scrollRange = -1;
@@ -78,5 +85,6 @@ public class NewsDetailActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }

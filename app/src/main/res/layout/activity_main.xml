@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
         <RelativeLayout
             android:layout_height="match_parent"
@@ -26,6 +25,9 @@
                 </RelativeLayout>
 
                 <com.roughike.bottombar.BottomBar
+                    app:bb_behavior="shifting"
+                    app:bb_titleTextAppearance="@style/BottomBarTextTitle"
+                    app:bb_titleTypeFace="fonts/code2.ttf"
                     app:bb_showShadow="false"
                     app:bb_inActiveTabAlpha="0.5"
                     app:bb_activeTabColor="@color/colorWhite"

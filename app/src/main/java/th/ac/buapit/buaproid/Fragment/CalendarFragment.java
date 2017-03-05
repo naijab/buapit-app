@@ -2,7 +2,6 @@ package th.ac.buapit.buaproid.Fragment;
 
 
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,11 +19,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import th.ac.buapit.buaproid.Adapter.CalendarRecyclerViewAdapter;
-import th.ac.buapit.buaproid.Adapter.NewsRecyclerViewAdapter;
-import th.ac.buapit.buaproid.ApiConnect.ApiConnectNews;
-import th.ac.buapit.buaproid.ApiConnect.RequestInterfaceNews;
+import th.ac.buapit.buaproid.Network.ApiConnect.ApiConnectNews;
+import th.ac.buapit.buaproid.Network.ApiConnect.RequestInterfaceNews;
 import th.ac.buapit.buaproid.Model.CalendarModel;
-import th.ac.buapit.buaproid.Model.NewsModel;
 import th.ac.buapit.buaproid.R;
 
 public class CalendarFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -84,8 +81,8 @@ public class CalendarFragment extends Fragment implements SwipeRefreshLayout.OnR
     private void GetRestNewsFromRetrofit(){
 
         final Map<String, String> mKey = new HashMap<>();
-        mKey.put("id", String.valueOf(1039760327));
-        mKey.put("key", "avgfefAgfsdRdCidlVREWSfelfLKAqwporzcgo");
+        mKey.put("id", String.valueOf(getString(R.string.api_key_id)));
+        mKey.put("key", getString(R.string.api_key));
 
         RequestInterfaceNews mInterface = ApiConnectNews.getClient().create(RequestInterfaceNews.class);
 
@@ -101,7 +98,7 @@ public class CalendarFragment extends Fragment implements SwipeRefreshLayout.OnR
 
                     final List<CalendarModel> mCalendarModel = response.body();
 
-                    mAdapter = (new CalendarRecyclerViewAdapter(getActivity().getApplicationContext(),mCalendarModel));
+                    mAdapter = (new CalendarRecyclerViewAdapter(getActivity(),mCalendarModel));
                     mRecyclerView.setAdapter(mAdapter);
                     mSwipeRefreshLayout.setRefreshing(false);
 
