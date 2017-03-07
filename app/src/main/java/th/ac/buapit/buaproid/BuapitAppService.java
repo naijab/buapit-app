@@ -5,6 +5,7 @@ import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class BuapitAppService extends Application{
@@ -15,6 +16,11 @@ public class BuapitAppService extends Application{
 
         //Setup Realm Database
         Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration
+                .Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
 
         //Setup Fabric.io
         final Fabric fabric = new Fabric.Builder(this)

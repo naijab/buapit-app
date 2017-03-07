@@ -5,17 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.like.LikeButton;
-import com.like.OnLikeListener;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +22,7 @@ import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import th.ac.buapit.buaproid.Adapter.NewsRecyclerViewAdapter;
+import th.ac.buapit.buaproid.Adapter.RecyclerView.NewsRecyclerViewAdapter;
 import th.ac.buapit.buaproid.Network.ApiConnect.ApiConnectNews;
 import th.ac.buapit.buaproid.Network.ApiConnect.RequestInterfaceNews;
 import th.ac.buapit.buaproid.Activities.NewsDetailActivity;
@@ -49,13 +46,11 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onStart() {
         super.onStart();
-        mRealm = Realm.getDefaultInstance();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        mRealm.close();
     }
 
     @Override
@@ -133,6 +128,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         public void onItemClick(View view, int position) {
 
                             Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
+                            intent.putExtra("id", mNewModel.get(position).getNewsId());
                             intent.putExtra("title", mNewModel.get(position).getNewsTitle());
                             intent.putExtra("content", mNewModel.get(position).getNewsContent());
                             intent.putExtra("img", mNewModel.get(position).getNewsImg());

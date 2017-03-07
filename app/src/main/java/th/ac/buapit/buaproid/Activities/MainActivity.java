@@ -12,19 +12,28 @@ import android.widget.Toast;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.util.ArrayList;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 import th.ac.buapit.buaproid.Fragment.CalendarFragment;
+import th.ac.buapit.buaproid.Fragment.FavFragment;
 import th.ac.buapit.buaproid.Fragment.NewsFragment;
+import th.ac.buapit.buaproid.Model.RealmObject.NewsRealmModel;
 import th.ac.buapit.buaproid.R;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
     final String TAG = getClass().getName();
+    Realm mRealm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mRealm = Realm.getDefaultInstance();
 
         initFragment();
         initBottomBar();
@@ -66,11 +75,40 @@ public class MainActivity extends AppCompatActivity {
                     pushNewFragment(mCalendarFragment, "Calendar");
                 }
                 else if (tabId == R.id.buttom_nav_item_fav) {
+
+
 //                    Toast toastF = Toast.makeText (MainActivity.this, "Favarite", Toast.LENGTH_SHORT );
 //                    toastF.show ();
-                    Log.d(TAG, "Open Fav Fragment");
-                    Fragment mCalendarFragment = new CalendarFragment();
-                    pushNewFragment(mCalendarFragment, "Calendar");
+//                    Log.d(TAG, "Open Fav Fragment");
+                    Fragment mFavFragment = new FavFragment();
+                    pushNewFragment(mFavFragment, "Fav");
+
+
+//                    RealmResults<NewsRealmModel> resultRealm = mRealm.where(NewsRealmModel.class)
+//                            .findAll();
+//
+//                    for(NewsRealmModel newsRealm : resultRealm)
+//                    {
+//                        Log.d(TAG, "Realm DB \n"
+//                                + newsRealm.getRealmNewsID() +"\n"
+//                                + newsRealm.getRealmNewsTitle() +"\n"
+//                                + newsRealm.getRealmNewsContent() +"\n"
+//                                + newsRealm.getRealmNewsImage());
+//
+////                        Toast toastF = Toast.makeText (MainActivity.this,
+////                                "Realm \n"
+////                                 + newsRealm.getRealmNewsID() +"\n\n\n\n\n\n\n\n\n\n"
+////                                 + newsRealm.getRealmNewsTitle() +"\n\n\n\n\n\n\n\n\n\n"
+////                                 + newsRealm.getRealmNewsContent() +"\n\n\n\n\n\n\n\n\n\n"
+////                                 + newsRealm.getRealmNewsImage()
+////                                ,Toast.LENGTH_LONG );
+////                        toastF.show ();
+//                    }
+
+
+
+
+
                 }
                 else if (tabId == R.id.buttom_nav_item_class) {
 //                    Toast toastF = Toast.makeText (MainActivity.this, "Favarite", Toast.LENGTH_SHORT );
@@ -78,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "Open Class Fragment");
                     Fragment mCalendarFragment = new CalendarFragment();
                     pushNewFragment(mCalendarFragment, "Calendar");
+
                 }
                 else if (tabId == R.id.buttom_nav_item_plus) {
 //                    Toast toastF = Toast.makeText (MainActivity.this, "Favarite", Toast.LENGTH_SHORT );
@@ -100,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
         } catch (NullPointerException npe) {
             Log.e(TAG, "NPE: Bug workaround");
         }
+
+        mRealm.close();
     }
 
     @Override

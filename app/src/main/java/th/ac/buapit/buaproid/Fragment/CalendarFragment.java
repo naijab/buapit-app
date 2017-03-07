@@ -18,7 +18,7 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import th.ac.buapit.buaproid.Adapter.CalendarRecyclerViewAdapter;
+import th.ac.buapit.buaproid.Adapter.RecyclerView.CalendarRecyclerViewAdapter;
 import th.ac.buapit.buaproid.Network.ApiConnect.ApiConnectNews;
 import th.ac.buapit.buaproid.Network.ApiConnect.RequestInterfaceNews;
 import th.ac.buapit.buaproid.Model.CalendarModel;

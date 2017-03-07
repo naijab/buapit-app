@@ -1,4 +1,4 @@
-package th.ac.buapit.buaproid.Adapter;
+package th.ac.buapit.buaproid.Adapter.RecyclerView;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import io.realm.Realm;
 import th.ac.buapit.buaproid.Model.NewsModel;
 import th.ac.buapit.buaproid.R;
 
@@ -28,6 +29,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     Context context;
     OnItemClickListener clickListener;
     private List<NewsModel> itemList;
+    Realm mRealm;
 
     public NewsRecyclerViewAdapter(Context context, List<NewsModel> itemList) {
         this.itemList = itemList;
@@ -75,14 +77,15 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         versionViewHolder.mLove.setOnLikeListener(new OnLikeListener() {
                 @Override
                 public void liked(LikeButton likeButton) {
-//                    Toast toastF = Toast.makeText ("Like True"
-//                            + itemList.get(position).getNewsModified(), Toast.LENGTH_SHORT );
-//                    toastF.show ();
+
                     int likenum = 0;
                     int sum = 0;
                     sum = likenum + 1;
                     versionViewHolder.mLikeNum.setText(String.valueOf(sum));
                     versionViewHolder.mLove.setLiked(true);
+
+//                    int mNewsID = itemList.get(position).getNewsId();
+
                 }
 
                 @Override

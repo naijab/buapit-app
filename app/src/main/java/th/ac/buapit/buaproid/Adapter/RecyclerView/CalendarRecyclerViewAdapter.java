@@ -1,4 +1,4 @@
-package th.ac.buapit.buaproid.Adapter;
+package th.ac.buapit.buaproid.Adapter.RecyclerView;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
