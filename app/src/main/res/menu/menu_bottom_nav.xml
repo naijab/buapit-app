@@ -6,21 +6,24 @@
         android:enabled="true"
         android:id="@+id/buttom_nav_item_home"
         android:icon="@drawable/ic_home"
-        app:showAsAction="ifRoom"
         android:title="@string/menu_bottom_nav_title_home"/>
 
     <item
         android:enabled="true"
         android:id="@+id/buttom_nav_item_calendar"
         android:icon="@drawable/ic_calendar"
-        app:showAsAction="ifRoom"
         android:title="@string/menu_bottom_nav_title_calendar"/>
 
     <item
         android:enabled="true"
         android:id="@+id/buttom_nav_item_fav"
         android:icon="@drawable/ic_grade"
-        app:showAsAction="ifRoom"
         android:title="@string/menu_bottom_nav_title_fav"/>
+
+    <item
+        android:enabled="true"
+        android:id="@+id/buttom_nav_item_more"
+        android:icon="@drawable/ic_queue"
+        android:title="@string/menu_bottom_nav_title_plus"/>
 
 </menu>
