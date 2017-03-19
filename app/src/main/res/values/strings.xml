@@ -1,4 +1,5 @@
 <resources>
+
     <!--API Key-->
     <string name="api_key">avgfefAgfsdRdCidlVREWSfelfLKAqwporzcgo</string>
     <string name="api_key_id">1039760327</string>
@@ -12,8 +13,11 @@
     <string name="menu_bottom_nav_title_calendar">กิจกรรม</string>
     <string name="menu_bottom_nav_title_class">ตารางเรียน</string>
     <string name="menu_bottom_nav_title_fav">น่าสนใจ</string>
-    <string name="menu_bottom_nav_title_plus">&#8230;</string>
+    <string name="menu_bottom_nav_title_plus">เพิ่มเติม</string>
 
     <string name="title_activity_main2">Detail Activity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -64,11 +64,11 @@
 
 
         <LinearLayout
-            android:layout_below="@+id/x_title"
             android:id="@+id/layout_like_item_recyclerview_home"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:layout_below="@+id/x_title"
+            android:orientation="horizontal">
 
             <com.like.LikeButton
                 android:id="@+id/love_button_item_recyclerview_home"
@@ -78,24 +78,24 @@
                 app:icon_type="heart" />
 
             <TextView
-                android:layout_gravity="center_vertical"
-                android:textSize="12sp"
                 android:id="@+id/num_love_button_item_recyclerview_home"
-                android:textColor="@color/bb_darkBackgroundColor"
-                android:text="@string/love_count_num"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/love_count_num"
+                android:textColor="@color/bb_darkBackgroundColor"
+                android:textSize="12sp" />
 
             <TextView
-                android:layout_gravity="center_vertical"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="@dimen/dimen_normal"
                 android:id="@+id/title_love_button_item_recyclerview_home"
-                android:textColor="@color/bb_darkBackgroundColor"
-                android:text="@string/love_count"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dimen_normal"
+                android:text="@string/love_count"
+                android:textColor="@color/bb_darkBackgroundColor"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
