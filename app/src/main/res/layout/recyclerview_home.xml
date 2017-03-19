@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/love_count_num"
-                android:textColor="@color/bb_darkBackgroundColor"
+                android:textColor="@color/grey_500"
                 android:textSize="12sp" />
 
             <TextView
@@ -93,7 +93,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/dimen_normal"
                 android:text="@string/love_count"
-                android:textColor="@color/bb_darkBackgroundColor"
+                android:textColor="@color/grey_500"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 

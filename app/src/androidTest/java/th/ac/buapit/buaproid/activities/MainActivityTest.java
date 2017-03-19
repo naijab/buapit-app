@@ -44,41 +44,6 @@ public class MainActivityTest {
                             isDisplayed()));
             appCompatImageButton.perform(click());
 
-            ViewInteraction bottomBarTab = onView(
-                    allOf(withId(R.id.buttom_nav_item_class),
-                            withParent(allOf(withId(R.id.bb_bottom_bar_item_container),
-                                    withParent(withId(R.id.bb_bottom_bar_outer_container)))),
-                            isDisplayed()));
-            bottomBarTab.perform(click());
-
-            ViewInteraction bottomBarTab2 = onView(
-                    allOf(withId(R.id.buttom_nav_item_calendar),
-                            withParent(allOf(withId(R.id.bb_bottom_bar_item_container),
-                                    withParent(withId(R.id.bb_bottom_bar_outer_container)))),
-                            isDisplayed()));
-            bottomBarTab2.perform(click());
-
-            ViewInteraction bottomBarTab3 = onView(
-                    allOf(withId(R.id.buttom_nav_item_fav),
-                            withParent(allOf(withId(R.id.bb_bottom_bar_item_container),
-                                    withParent(withId(R.id.bb_bottom_bar_outer_container)))),
-                            isDisplayed()));
-            bottomBarTab3.perform(click());
-
-            ViewInteraction bottomBarTab4 = onView(
-                    allOf(withId(R.id.buttom_nav_item_plus),
-                            withParent(allOf(withId(R.id.bb_bottom_bar_item_container),
-                                    withParent(withId(R.id.bb_bottom_bar_outer_container)))),
-                            isDisplayed()));
-            bottomBarTab4.perform(click());
-
-            ViewInteraction bottomBarTab0 = onView(
-                    allOf(withId(R.id.buttom_nav_item_home),
-                            withParent(allOf(withId(R.id.bb_bottom_bar_item_container),
-                                    withParent(withId(R.id.bb_bottom_bar_outer_container)))),
-                            isDisplayed()));
-            bottomBarTab0.perform(click());
-
 
     }
 

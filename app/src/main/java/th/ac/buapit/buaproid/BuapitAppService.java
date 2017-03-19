@@ -2,6 +2,7 @@ package th.ac.buapit.buaproid;
 
 import android.app.Application;
 import com.crashlytics.android.Crashlytics;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
@@ -13,6 +14,8 @@ public class BuapitAppService extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("News");
 
         //Setup Realm Database
         Realm.init(this);

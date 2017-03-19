@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRealm = Realm.getDefaultInstance();
+//        mRealm = Realm.getDefaultInstance();
 
         mToolbar = (Toolbar) findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(mToolbar);
@@ -58,10 +58,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupTabIcons() {
-        mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
-        mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
-        mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
-        mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
+        if (mTabLayout!=null) {
+                mTabLayout.getTabAt(0).setIcon(mTabIcons[0]);
+                mTabLayout.getTabAt(1).setIcon(mTabIcons[1]);
+                mTabLayout.getTabAt(2).setIcon(mTabIcons[2]);
+                mTabLayout.getTabAt(3).setIcon(mTabIcons[3]);
+        }
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "NPE: Bug workaround");
         }
 
-        mRealm.close();
+//        mRealm.close();
     }
 
     @Override

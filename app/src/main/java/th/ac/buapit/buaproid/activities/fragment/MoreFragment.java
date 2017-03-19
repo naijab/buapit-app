@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import th.ac.buapit.buaproid.R;
 import th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.AboutSchoolFragment;
 import th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.ContactSchoolFragment;
-import th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.PeopleFragment;
+import th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.PersonFragment;
 import th.ac.buapit.buaproid.adapter.viewpager.ViewPagerAll;
 
 public class MoreFragment extends Fragment {
@@ -44,7 +44,7 @@ public class MoreFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAll adapter = new ViewPagerAll(getChildFragmentManager());
         adapter.addFragment(new AboutSchoolFragment(), "ประวัติ");
-        adapter.addFragment(new PeopleFragment(), "บุคลากร");
+        adapter.addFragment(new PersonFragment(), "บุคลากร");
         adapter.addFragment(new ContactSchoolFragment(), "ติดต่อเรา");
         viewPager.setAdapter(adapter);
     }
