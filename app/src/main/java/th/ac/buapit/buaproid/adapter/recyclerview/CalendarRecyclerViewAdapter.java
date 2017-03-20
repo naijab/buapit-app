@@ -37,9 +37,9 @@ public class CalendarRecyclerViewAdapter extends RecyclerView.Adapter<CalendarRe
 
     @Override
     public void onBindViewHolder(final VersionViewHolder versionViewHolder, final int position) {
-        versionViewHolder.c_title.setText(itemList.get(position).getCalendarTitle());
-//        versionViewHolder.m_content.setText(itemList.get(position).getNewsContent());
-
+        versionViewHolder.mTitle.setText(itemList.get(position).getCalendarTitle());
+        versionViewHolder.mStart.setText(itemList.get(position).getCalendarStart());
+        versionViewHolder.mEnd.setText(itemList.get(position).getCalendarEnd());
     }
 
     @Override
@@ -53,23 +53,22 @@ public class CalendarRecyclerViewAdapter extends RecyclerView.Adapter<CalendarRe
     }
 
     class VersionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView c_title;
-        TextView c_content;
-        ImageView c_image;
+        TextView mTitle, mStart, mEnd;
 
         public VersionViewHolder(View itemView) {
             super(itemView);
 
-            c_title = (TextView) itemView.findViewById(R.id.c_title);
-            c_content = (TextView) itemView.findViewById(R.id.c_content);
+            mTitle = (TextView) itemView.findViewById(R.id.tv_event_title);
+            mStart = (TextView) itemView.findViewById(R.id.tv_event_start);
+            mEnd = (TextView) itemView.findViewById(R.id.tv_event_end);
 
-            itemView.setOnClickListener(this);
+//            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            clickListener.onItemClick(v, position);
+//            clickListener.onItemClick(v, position);
         }
     }
 

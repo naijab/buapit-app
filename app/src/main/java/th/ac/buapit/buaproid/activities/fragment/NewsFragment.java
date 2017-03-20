@@ -12,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.like.LikeButton;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +33,6 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private View rootView;
     RecyclerView mRecyclerView;
     SwipeRefreshLayout mSwipeRefreshLayout;
-    LikeButton mLove;
     NewsRecyclerViewAdapter mAdapter;
     private Realm mRealm;
 

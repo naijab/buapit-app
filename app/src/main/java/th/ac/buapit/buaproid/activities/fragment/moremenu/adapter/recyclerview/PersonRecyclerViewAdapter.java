@@ -5,14 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import th.ac.buapit.buaproid.R;
 import th.ac.buapit.buaproid.activities.fragment.moremenu.model.PersonModel;
-import th.ac.buapit.buaproid.model.CalendarModel;
 
 
 public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecyclerViewAdapter.VersionViewHolder> {
@@ -31,7 +29,7 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
 
     @Override
     public VersionViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_people, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_person, viewGroup, false);
         VersionViewHolder viewHolder = new VersionViewHolder(view);
         return viewHolder;
     }
