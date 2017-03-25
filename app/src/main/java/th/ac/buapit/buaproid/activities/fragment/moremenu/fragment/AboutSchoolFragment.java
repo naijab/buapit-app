@@ -1,12 +1,8 @@
 package th.ac.buapit.buaproid.activities.fragment.moremenu.fragment;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -33,6 +29,7 @@ public class AboutSchoolFragment extends Fragment implements SwipeRefreshLayout.
     private RecyclerView mRecyclerView;
     private AboutSchoolRecyclerViewAdapter mAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private String TAG = "AboutSchoolFragment";
 
     public AboutSchoolFragment() {
         // Required empty public constructor
@@ -43,7 +40,7 @@ public class AboutSchoolFragment extends Fragment implements SwipeRefreshLayout.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_about_school, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.fragement_about_school_recycler_view);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_fragement_about_school);
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_about_school_fragment);
         initRecyclerView();
         initSwipeRefreshLayout();
@@ -70,7 +67,7 @@ public class AboutSchoolFragment extends Fragment implements SwipeRefreshLayout.
     public void onRefresh() {
         mAdapter.clear();
         getAboutSchool();
-        Log.i("Person", "On Swipe Refresh Complete");
+        Log.i(TAG, "On Swipe Refresh Complete");
     }
 
     private void getAboutSchool() {
@@ -97,24 +94,15 @@ public class AboutSchoolFragment extends Fragment implements SwipeRefreshLayout.
                     mRecyclerView.setAdapter(mAdapter);
                     mSwipeRefreshLayout.setRefreshing(false);
 
-//                    mAdapter.SetOnItemClickListener(new AboutSchoolRecyclerViewAdapter.OnItemClickListener() {
-//                        @Override
-//                        public void onItemClick(View view, int position) {
-//
-//
-//
-//                        }
-//                    });
-
-                    Log.d("Person", "on Response OK: " + statusCode);
+                    Log.d(TAG, "on Response OK: " + statusCode);
                 } else {
-                    Log.e("Person", "on Response Error: " + statusCode);
+                    Log.e(TAG, "on Response Error: " + statusCode);
                 }
             }
 
             @Override
             public void onFailure(Call<List<AboutSchoolModel>> call, Throwable t) {
-                Log.e("Person", "on Enqueue Error: " + t.getMessage());
+                Log.e(TAG, "on Enqueue Error: " + t.getMessage());
             }
         });
 

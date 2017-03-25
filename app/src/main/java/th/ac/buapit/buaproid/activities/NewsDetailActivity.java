@@ -1,5 +1,6 @@
 package th.ac.buapit.buaproid.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -32,6 +33,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     ImageView mImg;
     FloatingActionButton mFab;
     Realm mRealm;
+    private String TAG = "NewsDetail Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +62,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         String Content = mGetIntent.getString("content");
         String Img = mGetIntent.getString("img");
 
-        mTitle = (TextView) findViewById(R.id.con_title);
-        mContent = (TextView) findViewById(R.id.con_content);
+        mTitle = (TextView) findViewById(R.id.tv_news_detail_title);
+        mContent = (TextView) findViewById(R.id.tv_news_detail_content);
         mImg = (ImageView) findViewById(R.id.img_news_detail);
 
         mTitle.setText(Title);
@@ -93,12 +95,16 @@ public class NewsDetailActivity extends AppCompatActivity {
                 .findAll();
 
         if (resultRealm.size() == 0) {
-            Log.d("Realm", "No Have In Realm");
+            Log.d(TAG, "No Have In Realm");
+            Drawable mDelete = getResources().getDrawable(R.drawable.ic_star);
             mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorYellow));
+            mFab.setImageDrawable(mDelete);
             isClickFAB = true;
         } else {
-            Log.d("Realm", "Yes Have In Realm");
-            mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+            Log.d(TAG, "Yes Have In Realm");
+            Drawable mDelete = getResources().getDrawable(R.drawable.ic_delete);
+            mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorRed));
+            mFab.setImageDrawable(mDelete);
             isClickFAB = false;
         }
 
@@ -117,12 +123,14 @@ public class NewsDetailActivity extends AppCompatActivity {
                                 mNewsRealm.setRealmNewsContent(Content);
                                 mNewsRealm.setRealmNewsImage(Img);
                                 isClickFAB = false;
-                                mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorGrey));
+                                Drawable mDelete = getResources().getDrawable(R.drawable.ic_delete);
+                                mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorRed));
+                                mFab.setImageDrawable(mDelete);
 
-                                Log.i("NewsDetailActivity", "Success to save to Realm");
+                                Log.i(TAG, "Success to save to Realm");
 
                                 Snackbar snackbar = Snackbar
-                                        .make(mCoordinatorLayoout, "Saved News", Snackbar.LENGTH_LONG);
+                                        .make(mCoordinatorLayoout, getString(R.string.news_saved), Snackbar.LENGTH_SHORT);
                                 snackbar.show();
                             }
                         });
@@ -133,12 +141,13 @@ public class NewsDetailActivity extends AppCompatActivity {
                             public void execute(Realm realm) {
                                 resultRealm.deleteAllFromRealm();
                                 isClickFAB = true;
+                                Drawable mDelete = getResources().getDrawable(R.drawable.ic_star);
                                 mFab.setBackgroundTintList(getResources().getColorStateList(R.color.colorYellow));
-
-                                Log.i("NewsDetailActivity", "Success to delete to Realm");
+                                mFab.setImageDrawable(mDelete);
+                                Log.i(TAG, "Success to delete to Realm");
 
                                 Snackbar snackbar = Snackbar
-                                        .make(mCoordinatorLayoout, "Deleted News", Snackbar.LENGTH_LONG);
+                                        .make(mCoordinatorLayoout, getString(R.string.news_deleted), Snackbar.LENGTH_SHORT);
                                 snackbar.show();
                             }
                         });
@@ -149,7 +158,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_news_detail);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -159,8 +168,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         Bundle i = getIntent().getExtras();
         final String Title = i.getString("title");
 
-        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
-        mAppBarLayout = (AppBarLayout) findViewById(R.id.AppBarLayout);
+        mCollapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout_news_detail);
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout_news_detail);
         mCollapsingToolbarLayout.setTitle("");
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = true;

@@ -16,27 +16,25 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/con_title"
+                android:id="@+id/tv_news_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="10dp"
-                android:text="New Text"
+                android:layout_marginTop="@dimen/dimen_big"
+                android:padding="@dimen/dimen_big"
+                android:text="@string/lorem_title"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18dp"
+                android:textSize="@dimen/font_big"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/con_content"
+                android:id="@+id/tv_news_detail_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/x_title"
-                android:layout_alignStart="@+id/x_title"
-                android:layout_below="@+id/con_title"
-                android:layout_marginTop="2dp"
-                android:padding="10dp"
-                android:text="Content"
-                android:textColor="#000" />
+                android:layout_below="@+id/tv_news_detail_title"
+                android:layout_marginTop="@dimen/dimen_small"
+                android:padding="@dimen/dimen_big"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_800" />
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 

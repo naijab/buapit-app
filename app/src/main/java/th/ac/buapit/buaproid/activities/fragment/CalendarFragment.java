@@ -26,11 +26,11 @@ import th.ac.buapit.buaproid.network.RetrofitRequestInterface;
 
 public class CalendarFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    final String TAG = getClass().getName();
     RecyclerView mRecyclerView;
     SwipeRefreshLayout mSwipeRefreshLayout;
     CalendarRecyclerViewAdapter mAdapter;
     private View rootView;
+    private String TAG = "CalendarFragment";
 
     public CalendarFragment() {
         // Required empty public constructor
@@ -54,31 +54,26 @@ public class CalendarFragment extends Fragment implements SwipeRefreshLayout.OnR
     }
 
     private void initRecyclerView() {
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.RecyclerViewCalendar);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_calendar_fragment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         mRecyclerView.setHasFixedSize(true);
 
-        GetRestNewsFromRetrofit();
+        GetRestCalendarFromRetrofit();
     }
 
     private void initSwipeRefreshLayout() {
-        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.SwipRefreshLayoutCalendar);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout_calendar_fragment);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-    }
-
-
-    private void AccessRestNewsFromRetrofit() {
-        // check internet
     }
 
     @Override
     public void onRefresh() {
         mAdapter.clear();
-        GetRestNewsFromRetrofit();
+        GetRestCalendarFromRetrofit();
         Log.i(TAG, "On Swipe Refresh Complete");
     }
 
-    private void GetRestNewsFromRetrofit() {
+    private void GetRestCalendarFromRetrofit() {
 
         final Map<String, String> mKey = new HashMap<>();
         mKey.put("id", String.valueOf(getString(R.string.api_key_id)));

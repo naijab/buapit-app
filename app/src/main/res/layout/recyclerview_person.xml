@@ -5,45 +5,44 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="0dp"
-    android:layout_marginBottom="1dp"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
-    android:padding="20dp"
-    app:cardBackgroundColor="#fff"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="1dp">
+    android:layout_marginBottom="@dimen/dimen_one"
+    android:layout_marginLeft="@dimen/dimen_none"
+    android:layout_marginRight="@dimen/dimen_none"
+    android:layout_marginTop="@dimen/dimen_none"
+    android:padding="@dimen/dimen_bigger"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/dimen_none"
+    app:cardElevation="@dimen/dimen_one">
 
     <LinearLayout
-        android:padding="10dp"
-        android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?android:attr/selectableItemBackground"
         android:orientation="vertical"
+        android:padding="@dimen/dimen_big"
         card_view:layout_height="match_parent"
         card_view:layout_width="match_parent">
 
         <TextView
-            android:id="@+id/p_title"
+            android:id="@+id/tv_person_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/c_content"
-            android:layout_marginTop="10dp"
-            android:padding="0dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_normal"
+            android:padding="@dimen/dimen_none"
+            android:text="@string/lorem_title"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_bigger"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/p_position"
+            android:id="@+id/tv_person_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:padding="2dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_none"
+            android:padding="@dimen/dimen_small"
+            android:text="@string/lorem_content"
             android:textColor="@color/grey_700"
-            android:textSize="16sp" />
+            android:textSize="@dimen/font_normal" />
 
     </LinearLayout>
 

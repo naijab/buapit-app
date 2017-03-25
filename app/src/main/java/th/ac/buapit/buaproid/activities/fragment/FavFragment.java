@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,13 +20,12 @@ import th.ac.buapit.buaproid.model.realmobject.NewsRealmModel;
 
 public class FavFragment extends Fragment {
 
-    final String TAG = getClass().getName();
     RecyclerView mRecyclerView;
-    SwipeRefreshLayout mSwipeRefreshLayout;
     NewsRealmRecyclerViewAdapter mAdapter;
     Context context;
     private View rootView;
     private Realm mRealm;
+    private String TAG = "FavFragment";
 
     public FavFragment() {
         // Required empty public constructor
@@ -57,7 +55,7 @@ public class FavFragment extends Fragment {
 
         mRealm = Realm.getDefaultInstance();
 
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycelrview_fav);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_fav_fragment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         mRecyclerView.setHasFixedSize(true);
 

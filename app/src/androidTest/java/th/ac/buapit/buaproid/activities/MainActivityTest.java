@@ -32,15 +32,15 @@ public class MainActivityTest {
     public void mainActivityTest() {
 
             ViewInteraction recyclerView = onView(
-                    allOf(withId(R.id.RecyclerViewHome),
-                            withParent(withId(R.id.SwipRefreshLayoutHome)),
+                    allOf(withId(R.id.recycler_view_news_fragment),
+                            withParent(withId(R.id.swipe_refresh_layout_news_fragment)),
                             isDisplayed()));
             recyclerView.perform(actionOnItemAtPosition(0, click()));
 
             ViewInteraction appCompatImageButton = onView(
                     allOf(withContentDescription("นำทางขึ้น"),
-                            withParent(allOf(withId(R.id.toolbar),
-                                    withParent(withId(R.id.collapsingToolbarLayout)))),
+                            withParent(allOf(withId(R.id.toolbar_news_detail),
+                                    withParent(withId(R.id.collapsing_toolbar_layout_news_detail)))),
                             isDisplayed()));
             appCompatImageButton.perform(click());
 

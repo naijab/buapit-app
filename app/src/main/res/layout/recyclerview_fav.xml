@@ -5,14 +5,14 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:paddingBottom="0dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp"
-    app:cardBackgroundColor="#fff"
-    app:cardCornerRadius="5sp"
-    app:cardElevation="5dp">
+    android:layout_margin="@dimen/dimen_big"
+    android:paddingBottom="@dimen/dimen_none"
+    android:paddingLeft="@dimen/dimen_big"
+    android:paddingRight="@dimen/dimen_big"
+    android:paddingTop="@dimen/dimen_big"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/dimen_normal"
+    app:cardElevation="@dimen/dimen_normal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,20 +22,20 @@
         card_view:layout_width="match_parent">
 
         <ImageView
-            android:id="@+id/image_recyclerview_fav"
+            android:id="@+id/image_fav"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/title_recyclerview_fav"
+            android:id="@+id/tv_fav_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:padding="@dimen/dimen_normal"
+            android:text="@string/lorem_title"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="@dimen/font_big"
             android:textStyle="bold" />
 
     </LinearLayout>

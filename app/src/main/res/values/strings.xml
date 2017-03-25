@@ -5,8 +5,8 @@
     <string name="api_key_id">1039760327</string>
 
     <string name="app_name">Buapit</string>
-    <string name="love_count">คน</string>
-    <string name="love_count_num">0</string>
+    <string name="school_name">โรงเรียนหนองบัวพิทยาคาร</string>
+    <string name="school_address">273/1 หมู่ 10 ต.ลำภู อ.เมือง จ.หนองบัวลำภู 39000</string>
 
     <!--Menu-->
     <string name="menu_bottom_nav_title_home">หน้าแรก</string>
@@ -15,7 +15,39 @@
     <string name="menu_bottom_nav_title_fav">ที่บันทึกไว้</string>
     <string name="menu_bottom_nav_title_plus">เพิ่มเติม</string>
 
-    <string name="title_activity_main2">Detail Activity</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Utility -->
+    <string name="lorem_title">Lorem Title</string>
+    <string name="lorem_content">Lorem Content</string>
+
+    <string name="news_saved">บันทึกแล้ว</string>
+    <string name="news_deleted">ลบแล้ว</string>
+
+    <string name="history">ประวัติ</string>
+    <string name="person">บุคลากร</string>
+    <string name="contact_us">ติดต่อเรา</string>
+
+    <string name="start">เริ่ม</string>
+    <string name="end">เสิ้นสุด</string>
+    <string name="type">ประเภท</string>
+    <string name="position">ตำแหน่ง</string>
+    <string name="fact">ฝ่าย</string>
+    <string name="close">ปิด</string>
+    <string name="open">เปิด</string>
+    <string name="dial_call">โทรออก</string>
+
+    <string name="school_director">ผู้อำนวยการ</string>
+    <string name="school_under">สังกัด</string>
+    <string name="school_total_student">จำนวนนักเรียน</string>
+    <string name="school_total_teacher">จำนวนบุคลากร</string>
+    <string name="school_subject">เปิดสอนระดับ</string>
+
+    <string name="facebook">facebook</string>
+    <string name="facebook_uri">http://www.facebook.com/nongbuapittayakarn</string>
+    <string name="website">website</string>
+    <string name="website_uri">http://www.buapit.ac.th/</string>
+    <string name="gps">นำทาง</string>
+    <string name="school_gps_uri_lat">17.209752</string>
+    <string name="school_gps_uri_long">102.446660</string>
+
 
 </resources>

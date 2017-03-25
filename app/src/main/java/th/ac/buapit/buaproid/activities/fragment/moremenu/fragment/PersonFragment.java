@@ -33,6 +33,7 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private RecyclerView mRecyclerView;
     private PersonRecyclerViewAdapter mAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private String TAG = "PersonFragment";
 
     public PersonFragment() {
         // Required empty public constructor
@@ -43,8 +44,8 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_person, container, false);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.fragement_people_recycler_view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_person_fragment);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_fragment_people);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout_fragment_people);
         initRecyclerView();
         initSwipeRefreshLayout();
         return view;
@@ -70,7 +71,7 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
     public void onRefresh() {
         mAdapter.clear();
         getPersonLoad();
-        Log.i("Person", "On Swipe Refresh Complete");
+        Log.i(TAG, "On Swipe Refresh Complete");
     }
 
     private void getPersonLoad() {
@@ -109,9 +110,9 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
                                     new AlertDialog.Builder(getActivity());
                             builder.setTitle(namePersons);
                             builder.setMessage(
-                                    "ตำแหน่ง: "+ positionPerson +"\n\n\n"
-                                    +"ฝ่าย: " + factionPerson);
-                            builder.setPositiveButton("โทรออก", new DialogInterface.OnClickListener() {
+                                    getString(R.string.position)+": "+ positionPerson +"\n\n\n" +
+                                    getString(R.string.fact)+": " + factionPerson);
+                            builder.setPositiveButton(getString(R.string.dial_call), new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
 
                                     Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", telPerson, null));
@@ -119,7 +120,7 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
                                 }
                             });
-                            builder.setNegativeButton("ปิด", new DialogInterface.OnClickListener() {
+                            builder.setNegativeButton(getString(R.string.close), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
@@ -130,15 +131,15 @@ public class PersonFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         }
                     });
 
-                    Log.d("Person", "on Response OK: " + statusCode);
+                    Log.d(TAG, "on Response OK: " + statusCode);
                 } else {
-                    Log.e("Person", "on Response Error: " + statusCode);
+                    Log.e(TAG, "on Response Error: " + statusCode);
                 }
             }
 
             @Override
             public void onFailure(Call<List<PersonModel>> call, Throwable t) {
-                Log.e("Person", "on Enqueue Error: " + t.getMessage());
+                Log.e(TAG, "on Enqueue Error: " + t.getMessage());
             }
         });
 

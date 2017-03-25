@@ -36,8 +36,8 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
 
     @Override
     public void onBindViewHolder(final VersionViewHolder versionViewHolder, final int position) {
-        versionViewHolder.c_title.setText(itemList.get(position).getNamePerson());
-        versionViewHolder.c_position.setText(itemList.get(position).getPositionPerson());
+        versionViewHolder.p_title.setText(itemList.get(position).getNamePerson());
+        versionViewHolder.p_position.setText(itemList.get(position).getPositionPerson());
     }
 
     @Override
@@ -51,13 +51,13 @@ public class PersonRecyclerViewAdapter extends RecyclerView.Adapter<PersonRecycl
     }
 
     class VersionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView c_title, c_position;
+        TextView p_title, p_position;
 
         public VersionViewHolder(View itemView) {
             super(itemView);
 
-            c_title = (TextView) itemView.findViewById(R.id.p_title);
-            c_position = (TextView) itemView.findViewById(R.id.p_position);
+            p_title = (TextView) itemView.findViewById(R.id.tv_person_title);
+            p_position = (TextView) itemView.findViewById(R.id.tv_person_position);
 
             itemView.setOnClickListener(this);
         }

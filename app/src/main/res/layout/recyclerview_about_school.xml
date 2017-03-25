@@ -5,53 +5,193 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="0dp"
-    android:layout_marginBottom="1dp"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
-    android:padding="20dp"
-    app:cardBackgroundColor="#fff"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="1dp">
+    android:layout_marginBottom="@dimen/dimen_one"
+    android:layout_marginLeft="@dimen/dimen_none"
+    android:layout_marginRight="@dimen/dimen_none"
+    android:layout_marginTop="@dimen/dimen_none"
+    android:padding="@dimen/dimen_extra"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/dimen_none"
+    app:cardElevation="@dimen/dimen_one">
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="@dimen/dimen_big"
         card_view:layout_height="match_parent"
         card_view:layout_width="match_parent">
 
-
         <ImageView
-            android:id="@+id/a_logo"
-            android:layout_gravity="center"
-            android:layout_width="120dp"
-            android:layout_height="120dp" />
-
+            android:id="@+id/iv_school_logo"
+            android:layout_width="@dimen/dimen_super_xxx"
+            android:layout_height="@dimen/dimen_super_xxx"
+            android:layout_gravity="center" />
 
         <TextView
-            android:id="@+id/a_title"
+            android:id="@+id/tv_about_school_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/c_content"
-            android:layout_marginTop="10dp"
-            android:padding="0dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_big"
+            android:padding="@dimen/dimen_none"
+            android:text="@string/lorem_title"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_extra"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/a_history"
+            android:id="@+id/tv_about_school_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="10dp"
-            android:layout_marginTop="0dp"
-            android:padding="2dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_none"
+            android:lineSpacingExtra="@dimen/dimen_big"
+            android:padding="@dimen/dimen_small"
+            android:text="@string/lorem_content"
             android:textColor="@color/grey_700"
-            android:textSize="16sp" />
+            android:textSize="@dimen/font_normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_margin="@dimen/dimen_normal"
+            android:background="@color/grey_300" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/school_director"
+                android:textColor="@color/grey_800"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about_school_director"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_600"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/school_under"
+                android:textColor="@color/grey_800"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about_school_under"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_600"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/school_total_student"
+                android:textColor="@color/grey_800"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about_school_total_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_600"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/school_total_teacher"
+                android:textColor="@color/grey_800"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about_school_total_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_600"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/school_subject"
+                android:textColor="@color/grey_800"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_about_school_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_none"
+                android:padding="@dimen/dimen_small"
+                android:text="@string/lorem_content"
+                android:textColor="@color/grey_600"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="normal" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

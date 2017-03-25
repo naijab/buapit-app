@@ -73,9 +73,9 @@ public class NewsRealmRecyclerViewAdapter extends RecyclerView.Adapter<NewsRealm
         public VersionViewHolder(View itemView) {
             super(itemView);
 
-            c_title = (TextView) itemView.findViewById(R.id.title_recyclerview_fav);
+            c_title = (TextView) itemView.findViewById(R.id.tv_fav_title);
 //            c_content = (TextView) itemView.findViewById(R.id.c_content);
-            c_image = (ImageView) itemView.findViewById(R.id.image_recyclerview_fav);
+            c_image = (ImageView) itemView.findViewById(R.id.image_fav);
 
             itemView.setOnClickListener(this);
         }

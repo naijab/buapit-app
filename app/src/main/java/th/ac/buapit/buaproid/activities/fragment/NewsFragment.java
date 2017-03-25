@@ -29,25 +29,14 @@ import th.ac.buapit.buaproid.network.RetrofitRequestInterface;
 
 public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    final String TAG = getClass().getName();
     private View rootView;
     RecyclerView mRecyclerView;
     SwipeRefreshLayout mSwipeRefreshLayout;
     NewsRecyclerViewAdapter mAdapter;
-    private Realm mRealm;
+    private String TAG = "NewsFragment";
 
     public NewsFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
     }
 
     @Override
@@ -56,7 +45,6 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         rootView = inflater.inflate(R.layout.fragment_news, container, false);
         initRecyclerView();
         initSwipeRefreshLayout();
-        initLikeButton();
         return rootView;
     }
 
@@ -67,26 +55,16 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void initRecyclerView() {
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.RecyclerViewHome);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_news_fragment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity().getApplicationContext(),2));
         mRecyclerView.setHasFixedSize(true);
 
         GetRestNewsFromRetrofit();
     }
 
     private void initSwipeRefreshLayout() {
-        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.SwipRefreshLayoutHome);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout_news_fragment);
         mSwipeRefreshLayout.setOnRefreshListener(this);
-    }
-
-    private void initLikeButton() {
-
-
-    }
-
-    private void AccessRestNewsFromRetrofit() {
-        // check internet
     }
 
     @Override

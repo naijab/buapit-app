@@ -5,14 +5,14 @@
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:paddingBottom="0dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="5dp"
-    app:cardBackgroundColor="#fff"
-    app:cardCornerRadius="2sp"
-    app:cardElevation="2dp">
+    android:layout_margin="@dimen/dimen_normal"
+    android:paddingBottom="@dimen/dimen_none"
+    android:paddingLeft="@dimen/dimen_big"
+    android:paddingRight="@dimen/dimen_big"
+    android:paddingTop="@dimen/dimen_normal"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/dimen_small"
+    app:cardElevation="@dimen/dimen_small">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,11 +25,11 @@
             android:id="@+id/tv_event_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:padding="3dp"
-            android:text="New Text"
+            android:layout_marginTop="@dimen/dimen_normal"
+            android:padding="@dimen/dimen_small"
+            android:text="@string/lorem_title"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textSize="@dimen/font_bigger"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -46,32 +46,32 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="@dimen/dimen_small"
                     android:layout_weight="1"
-                    android:padding="5dp"
-                    android:text="เริ่ม"
+                    android:padding="@dimen/dimen_normal"
+                    android:text="@string/start"
                     android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_normal"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_event_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="@dimen/dimen_small"
                     android:layout_weight="4"
-                    android:padding="5dp"
-                    android:text="Date Start"
+                    android:padding="@dimen/dimen_normal"
+                    android:text="@string/lorem_title"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_big" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="1dp"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/dimen_xx"
                 android:layout_gravity="center_horizontal"
                 android:background="@color/grey_400" />
 
@@ -85,26 +85,26 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="@dimen/dimen_small"
                     android:layout_weight="1"
-                    android:padding="5dp"
-                    android:text="สิ้นสุด"
+                    android:padding="@dimen/dimen_normal"
+                    android:text="@string/end"
                     android:textAlignment="center"
-                    android:textColor="#000"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_normal"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_event_end"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="@dimen/dimen_small"
                     android:layout_weight="4"
-                    android:padding="5dp"
-                    android:text="Date Start"
+                    android:padding="@dimen/dimen_normal"
+                    android:text="@string/lorem_title"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/font_big" />
 
             </LinearLayout>
 

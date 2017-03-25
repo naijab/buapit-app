@@ -39,7 +39,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
 
     @Override
     public VersionViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_home, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recyclerview_news, viewGroup, false);
         VersionViewHolder viewHolder = new VersionViewHolder(view);
         return viewHolder;
     }
@@ -90,10 +90,10 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
         public VersionViewHolder(View itemView) {
             super(itemView);
 
-            mTitle = (TextView) itemView.findViewById(R.id.x_title);
-            mDates = (TextView) itemView.findViewById(R.id.x_date);
-            mCat = (TextView) itemView.findViewById(R.id.x_cat);
-            mImage = (ImageView) itemView.findViewById(R.id.title_img);
+            mTitle = (TextView) itemView.findViewById(R.id.tv_news_title);
+            mDates = (TextView) itemView.findViewById(R.id.tv_news_date);
+            mCat = (TextView) itemView.findViewById(R.id.tv_news_cat);
+            mImage = (ImageView) itemView.findViewById(R.id.image_news);
 
             itemView.setOnClickListener(this);
         }
