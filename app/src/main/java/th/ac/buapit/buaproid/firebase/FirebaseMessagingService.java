@@ -10,7 +10,7 @@ import android.support.v4.app.NotificationCompat;
 import com.google.firebase.messaging.RemoteMessage;
 
 import th.ac.buapit.buaproid.R;
-import th.ac.buapit.buaproid.activities.MainActivity;
+import th.ac.buapit.buaproid.ui.MainActivity;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService{
 

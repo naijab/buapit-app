@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_200"
-    tools:context=".activities.fragment.CalendarFragment">
+    tools:context=".ui.calendar.CalendarFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
