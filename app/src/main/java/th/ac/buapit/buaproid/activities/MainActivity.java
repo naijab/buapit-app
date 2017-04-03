@@ -15,6 +15,7 @@ import th.ac.buapit.buaproid.activities.fragment.CalendarFragment;
 import th.ac.buapit.buaproid.activities.fragment.FavFragment;
 import th.ac.buapit.buaproid.activities.fragment.MoreFragment;
 import th.ac.buapit.buaproid.activities.fragment.NewsFragment;
+import th.ac.buapit.buaproid.activities.fragment.NewsXFragment;
 import th.ac.buapit.buaproid.adapter.viewpager.ViewPagerAll;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -28,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
     private int[] mTabIcons = {
             R.drawable.ic_tab_home_selector,
             R.drawable.ic_tab_calendar_selector,
+            R.drawable.ic_tab_calendar_selector,
             R.drawable.ic_tab_fav_selector,
             R.drawable.ic_tab_more_selector
     };
 
     private int[] mTabTitle = {
             R.string.menu_bottom_nav_title_home,
+            R.string.menu_bottom_nav_title_newsx,
             R.string.menu_bottom_nav_title_calendar,
             R.string.menu_bottom_nav_title_fav,
             R.string.menu_bottom_nav_title_plus
@@ -67,20 +70,25 @@ public class MainActivity extends AppCompatActivity {
             mTitleHome.setText(getString(mTabTitle[0]));
             mTabLayout.getTabAt(0).setCustomView(mTitleHome);
 
+            TextView mTitleNews = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_text_on_tablayout, null);
+            mTitleNews.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[1], 0, 0);
+            mTitleNews.setText(getString(mTabTitle[1]));
+            mTabLayout.getTabAt(1).setCustomView(mTitleNews);
+
             TextView mTitleCal = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_text_on_tablayout, null);
-            mTitleCal.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[1], 0, 0);
-            mTitleCal.setText(getString(mTabTitle[1]));
-            mTabLayout.getTabAt(1).setCustomView(mTitleCal);
+            mTitleCal.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[2], 0, 0);
+            mTitleCal.setText(getString(mTabTitle[2]));
+            mTabLayout.getTabAt(2).setCustomView(mTitleCal);
 
             TextView mTitleFav = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_text_on_tablayout, null);
-            mTitleFav.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[2], 0 , 0);
-            mTitleFav.setText(getString(mTabTitle[2]));
-            mTabLayout.getTabAt(2).setCustomView(mTitleFav);
+            mTitleFav.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[3], 0 , 0);
+            mTitleFav.setText(getString(mTabTitle[3]));
+            mTabLayout.getTabAt(3).setCustomView(mTitleFav);
 
             TextView mTitleMore = (TextView) LayoutInflater.from(MainActivity.this).inflate(R.layout.custom_text_on_tablayout, null);
-            mTitleMore.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[3], 0 , 0);
-            mTitleMore.setText(getString(mTabTitle[3]));
-            mTabLayout.getTabAt(3).setCustomView(mTitleMore);
+            mTitleMore.setCompoundDrawablesWithIntrinsicBounds(0, mTabIcons[4], 0 , 0);
+            mTitleMore.setText(getString(mTabTitle[4]));
+            mTabLayout.getTabAt(4).setCustomView(mTitleMore);
 
         }catch(NullPointerException e){
             Log.e(TAG,"NullPointerException in setupTablayout: "+ e);
@@ -91,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAll adapter = new ViewPagerAll(getSupportFragmentManager());
         adapter.addFragment(new NewsFragment(), getString(R.string.menu_bottom_nav_title_home));
+        adapter.addFragment(new NewsXFragment(), getString(R.string.menu_bottom_nav_title_newsx));
         adapter.addFragment(new CalendarFragment(), getString(R.string.menu_bottom_nav_title_calendar));
         adapter.addFragment(new FavFragment(), getString(R.string.menu_bottom_nav_title_fav));
         adapter.addFragment(new MoreFragment(), getString(R.string.menu_bottom_nav_title_plus));
