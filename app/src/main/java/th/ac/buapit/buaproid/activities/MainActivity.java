@@ -98,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAll adapter = new ViewPagerAll(getSupportFragmentManager());
-        adapter.addFragment(new NewsFragment(), getString(R.string.menu_bottom_nav_title_home));
-        adapter.addFragment(new NewsXFragment(), getString(R.string.menu_bottom_nav_title_newsx));
-        adapter.addFragment(new CalendarFragment(), getString(R.string.menu_bottom_nav_title_calendar));
-        adapter.addFragment(new FavFragment(), getString(R.string.menu_bottom_nav_title_fav));
-        adapter.addFragment(new MoreFragment(), getString(R.string.menu_bottom_nav_title_plus));
+        adapter.addFragment(new NewsFragment(), getString(mTabTitle[0]));
+        adapter.addFragment(new NewsXFragment(), getString(mTabTitle[1]));
+        adapter.addFragment(new CalendarFragment(), getString(mTabTitle[2]));
+        adapter.addFragment(new FavFragment(), getString(mTabTitle[3]));
+        adapter.addFragment(new MoreFragment(), getString(mTabTitle[4]));
         viewPager.setAdapter(adapter);
     }
 
