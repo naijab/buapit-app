@@ -6,10 +6,10 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
-import th.ac.buapit.buaproid.activities.fragment.moremenu.model.AboutSchoolModel;
-import th.ac.buapit.buaproid.activities.fragment.moremenu.model.PersonModel;
-import th.ac.buapit.buaproid.model.CalendarModel;
-import th.ac.buapit.buaproid.model.NewsModel;
+import th.ac.buapit.buaproid.ui.about.AboutSchoolModel;
+import th.ac.buapit.buaproid.ui.person.PersonModel;
+import th.ac.buapit.buaproid.ui.calendar.CalendarModel;
+import th.ac.buapit.buaproid.ui.news.NewsModel;
 
 public interface RetrofitRequestInterface {
 

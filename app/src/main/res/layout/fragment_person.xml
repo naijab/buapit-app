@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_200"
-    tools:context="th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.PersonFragment">
+    tools:context="th.ac.buapit.buaproid.ui.person.PersonFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

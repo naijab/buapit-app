@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_200"
-    tools:context="th.ac.buapit.buaproid.activities.fragment.moremenu.fragment.ContactSchoolFragment">
+    tools:context="th.ac.buapit.buaproid.ui.contact.ContactSchoolFragment">
 
     <ScrollView
         android:layout_width="match_parent"

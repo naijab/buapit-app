@@ -14,6 +14,7 @@
     <string name="menu_bottom_nav_title_class">ตารางเรียน</string>
     <string name="menu_bottom_nav_title_fav">ที่บันทึกไว้</string>
     <string name="menu_bottom_nav_title_plus">เพิ่มเติม</string>
+    <string name="menu_bottom_nav_title_newsx">ข่าว X</string>
 
     <!-- Utility -->
     <string name="lorem_title">Lorem Title</string>
